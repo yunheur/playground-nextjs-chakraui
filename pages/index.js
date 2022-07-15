@@ -24,6 +24,8 @@ export default function Home() {
 }
 
 function Forms() {
+  const componentNames = ["Input", "InputGroup", "Button"];
+
   return (
     <VStack align="stretch">
       <Heading as={"h3"} size={"sm"}>
@@ -37,16 +39,13 @@ function Forms() {
       <Divider />
       <Box>
         <UnorderedList>
-          <ListItem>
-            <NextLink href={"/Forms/Input"} passHref>
-              <Link>Input</Link>
-            </NextLink>
-          </ListItem>
-          <ListItem>
-            <NextLink href={"/Forms/InputGroup"} passHref>
-              <Link>InputGroup</Link>
-            </NextLink>
-          </ListItem>
+          {componentNames.map((name, nameIdx) => (
+            <ListItem key={nameIdx}>
+              <NextLink href={`/Forms/${name}`} passHref>
+                <Link>{name}</Link>
+              </NextLink>
+            </ListItem>
+          ))}
         </UnorderedList>
       </Box>
     </VStack>
